@@ -132,10 +132,14 @@ if __name__ == "__main__":
     if c == 'y':
         try:
             ans = Answer()
-            ans.start(2)
+            page = input("请输入最大搜索的页码：(直接回车就是2页)")
+            if(page == ""):
+                ans.start(2)
+            else:
+                ans.start(int(page))
+            print("成功！")
         except Exception as e:
             print(e.__str__)
             print(traceback.format_exc())
     else:
         exit()
-    print("成功！")
