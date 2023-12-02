@@ -68,6 +68,8 @@ class Answer:
             elif questions["data"]["todayReach"] == True:
                 print("  今日已经达到，拒绝继续答题")
                 return False
+        if len(questions["data"]["questions"]) == 0:
+            print("  这文章没题目，不加分")
         for question in questions["data"]["questions"]:
             print("  题目id：" + question["id"])
             if(question["queType"] == 1):
@@ -118,7 +120,7 @@ class Answer:
                 else:
                     print("满足条件，选定文章：" + passage["id"])
                     if self.learn(passage["id"]) :
-                        print(f"积分加{passage['credits']}")
+                        pass
                     else :
                         print("答题失败，但没出事")
                         return
